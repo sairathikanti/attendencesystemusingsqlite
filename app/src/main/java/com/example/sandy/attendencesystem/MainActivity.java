@@ -14,10 +14,12 @@ import com.facebook.stetho.Stetho;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private  TextView amrpm;
     private String AMPM;
+    private  TextView day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             TextView hours = (TextView) findViewById(R.id.hours);
             TextView mins = (TextView) findViewById(R.id.mins);
+            day = (TextView) findViewById(R.id.day);
             // TextView newuser = (TextView) findViewById(R.id.update);
             amrpm = (TextView) findViewById(R.id.amorpm);
             Button btn = (Button) findViewById(R.id.update);
@@ -96,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
         date.setText(dd);
 
+        SimpleDateFormat sdf = new SimpleDateFormat("EE");
+        Date d = new Date();
+        String dayOfTheWeek = sdf.format(d);
+        day.setText(dayOfTheWeek);
 
     }
 
